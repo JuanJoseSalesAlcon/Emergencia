@@ -4,10 +4,13 @@
  */
 package Controladores;
 
+import Modelos.Pacientes;
 import Modelos.PacientesModel;
 import Vistas.frmPrincipal;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.PriorityQueue;
+import java.util.Queue;
 
 /**
  *
@@ -40,6 +43,14 @@ public class PacientesController implements ActionListener{
                        Integer.parseInt(this.VistaPricipal.txtPrioridad.getText()));
                this.VistaPricipal.jtTablaPacientes.setModel(this.ModeloPacientes.ListarPacientes());
            }
+           if(e.getSource() == this.VistaPricipal.btnAtender){
+               this.ModeloPacientes.AtenderPacientePrioridad(this.VistaPricipal.txtApellidos.getText(),
+                       this.VistaPricipal.txtNombre.getText(),
+                       this.VistaPricipal.txtTelefono.getText(),
+                       Integer.parseInt(this.VistaPricipal.txtPrioridad.getText()));
+               this.VistaPricipal.jtTablaPacientes.setModel(this.ModeloPacientes.ListarPacientes());
+           }
+
     }
     
 }

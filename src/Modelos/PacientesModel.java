@@ -16,7 +16,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class PacientesModel {
 PriorityQueue<Pacientes> ListaPacientes= new PriorityQueue<Pacientes>();
-DefaultTableModel ModeloTabla = new DefaultTableModel();
+DefaultTableModel ModeloTabla;
 
     public void IngresarPaciente(String ape, String nom, String tel, int gra)
     {
@@ -26,6 +26,7 @@ DefaultTableModel ModeloTabla = new DefaultTableModel();
     
     public DefaultTableModel ListarPacientes()
     {
+        ModeloTabla = new DefaultTableModel();
         this.ModeloTabla.addColumn("APELLIDOS");
         this.ModeloTabla.addColumn("NOMBRES");
         this.ModeloTabla.addColumn("TELEFONO");
@@ -39,5 +40,9 @@ DefaultTableModel ModeloTabla = new DefaultTableModel();
                 MiListaDePacientes.getGravedad()});
         }
         return ModeloTabla;
+    }
+    public void AtenderPacientePrioridad(String ape, String nom, String tel, int gra)
+    {
+        this.ListaPacientes.poll();
     }
 }
